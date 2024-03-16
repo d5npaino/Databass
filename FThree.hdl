@@ -1,0 +1,13 @@
+CHIP FThree {
+    IN  a,b,c,d;
+    OUT e,f,g;
+
+    PARTS:
+    Xor (a=a,b=c,out=acXor1);
+    Xor (a=b,b=d,out=g);
+    And (a=b,b=d,out=bdCarry);
+    And (a=a,b=c,out=acCarry);
+    Xor (a=bdCarry,b=acXor,out=f);
+    And (a=acXor,b=bdCarry,out=abcdCarry);
+    Xor (a=acCarry,b=abcdCarry,out=e);
+}

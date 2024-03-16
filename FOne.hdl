@@ -1,0 +1,10 @@
+CHIP FOne {
+    IN  a,b,c,d;
+    OUT f,g;
+
+    PARTS:
+    And (a=a,b=c,out=f);
+    And (a=b,b=d,out=g);
+
+    nd 
+}

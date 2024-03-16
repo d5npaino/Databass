@@ -1,0 +1,26 @@
+CHIP FALL {
+    IN  f1,f0,a,b,c,d;
+    OUT e,f,g;
+
+    PARTS:
+    FZero (c=c,d=d,f=0f,g=0g);
+    FOne (a=a,b=b=,c=c=,d=d,f=1f,g=1g);
+    FTwo (a=a,b=b=,c=c=,d=d,f=2f,g=2g);
+    FThree (a=a,b=b=,c=c=,d=d,e=3e,f=3f,g=3g);
+
+    Not (in=f1,out=notf1);
+    Not (in=f0,out=notf0);
+    And (in=notf1,notf0,out=FThree);
+
+    Mux(in=2f,0f,f1, out=fOdd);
+    Mux(in=3f,1f,f1, out=fEven);
+    Mux(in=fEven,fOdd,f0, out=f);
+    Mux(in=2g,0g,f1, out=gOdd);
+    Mux(in=3g,1g,f1, out=gEven);
+    Mux(in=gEven,gOdd,f0, out=g); 
+    
+    And (in=3e,FThree,out=e);
+
+
+    
+}

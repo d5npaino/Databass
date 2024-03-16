@@ -1,0 +1,8 @@
+CHIP FTwo {
+    IN  a,b,c,d;
+    OUT f,g;
+
+    PARTS:
+    Or (a=a,b=c,out=f);
+    Or (a=b,b=d,out=g);
+}
